@@ -5,27 +5,52 @@
 ```bash
 $ systemctl
 ```
+
 ### サービス起動
-`$ systemctl start [service_name].service`
+```bash
+$ systemctl start [service_name].service
+```
+
 ### サービス停止
-`$ systemctl stop [service_name].service`
+```bash
+$ systemctl stop [service_name].service
+```
+
 ### サービス再起動
-`$ systectl restart [service_name].service`
+```bash
+$ systectl restart [service_name].service
+```
+
 ### サービスの自動起動設定[enable/disable]の一覧
-`$ systemctl list-unit-files -t service`
+```bash
+$ systemctl list-unit-files -t service
+```
+
 ### 個別にサービスの自動起動設定を確認
-`$ systemctl status [service_name].service`
+```bash
+$ systemctl status [service_name].service
+```
+
 ### サービスの自動起動有効化
-`$ systemctl enable [service_name].service`
+```bash
+$ systemctl enable [service_name].service
+```
 ### サービスの自動起動無効化
-`$ systemctl disable [service_name].service`
+```bash
+$ systemctl disable [service_name].service
+```
+
 ### systemctlのログ出力
-`$ jornalctl -u [service_name].service`  
+```bash
+$ jornalctl -u [service_name].service
+```
 `-b` 直近の起動ログ  
 `-k` エラーを強調する  
 `-f` リアルタイムな表示  
 
 ## nginx
 ### 現在設定されているconfファイルの文法チェック
-`# nginx -t`
+```bash
+# nginx -t
+```
 
