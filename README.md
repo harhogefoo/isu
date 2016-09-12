@@ -13,9 +13,9 @@
 `$ systemctl list-unit-files -t service`
 ### 個別にサービスの自動起動設定を確認
 `$ systemctl status [service_name].service`
-### systemctlでサービスの自動起動有効化
+### サービスの自動起動有効化
 `$ systemctl enable [service_name].service`
-### systemctlでサービスの自動起動無効化
+### サービスの自動起動無効化
 `$ systemctl disable [service_name].service`
 ### systemctlのログ出力
 `$ jornalctl -u [service_name].service`  
