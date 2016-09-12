@@ -2,7 +2,9 @@
 ## systemctl
 ※CentOS7では実質`chkconfig`が廃止され，サービスに関連することはsystemctlを使う
 ### 実行中のサービス一覧
-`$ systemctl`
+```bash
+$ systemctl
+```
 ### サービス起動
 `$ systemctl start [service_name].service`
 ### サービス停止
