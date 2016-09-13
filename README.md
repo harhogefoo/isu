@@ -73,6 +73,64 @@ $ go get github.com/matsuu/kataribe
 
 ---
 
+## ●MySQL
+### Find my.cnf
+```
+$ mysql --help | grep my.cnf
+```
+### Write config file for ISU
+```
+innodb_buffer_pool_size=1GB // インスタンスのメモリサイズを超えるとエラーになるので注意
+innodb_flush_log_at_trx_commit=2 // 1に設定するとトランザクション単位でログを出力するが 2 を指定すると1秒間に1回ログファイルに出力するようになる
+innodb_flush_method=O_DIRECT //データファイル/ログファイルの読み書き方式を指定
+```
+```
+# if error was occuered
+rm /var/lib/mysql/ib_logfile0
+rm /var/lib/mysql/ib_logfile1
+```
+### Check Parameters
+```
+mysql> select @@[param_name];
+```
+### Add Index
+```
+ALTER TABLE [table_name] ADD INDEX [index_name]([column_name])
+```
+
+
+### Dump Slow Query
+### Command
+```
+mysql> set global slow_query_log = 1;
+mysql> set global long_query_time = 0;
+mysql> set global slow_query_log_file = "/tmp/slow.log";
+mysql> set global log_queries_not_using_indexes = 1;
+```
+#### Write config file for log
+```
+[mysqld]
+slow_query_log = 1
+slow_query_log_file = /var/lib/mysql/mysqld-slow.log
+long_query_time = 0
+log_queries_not_using_indexes = 1
+```
+### Analyze Slow Query
+#### Use mysqldumpslow
+```
+$ mysqldumpslow -s t /path/to/log > /path/to/output
+```
+#### Use pt-query-digest
+```
+$ wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
+$ sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
+$ sudo apt-get install percona-toolkit
+$ pt-query-digest /tmp/slow.log > /tmp/digest.txt
+```
+
+
+---
+
 ## ●commands (使えるコマンド集）
 ### システム情報の表示
 ```
