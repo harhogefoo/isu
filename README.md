@@ -132,25 +132,6 @@ $ pt-query-digest /tmp/slow.log > /tmp/digest.txt
 
 ---
 
-## Change Kernel Params
-```
-$ vim /etc/sysctl.d/99-sysctl.conf
-```
-```
-net.ipv4.tcp_max_tw_buckets = 2000000 //  システムが同時に保持する time-wait ソケットの最大数。この数を越えると、time-wait ソケットは直ちに破棄され、警告が表示されます。この制限は単純な DoS 攻撃を防ぐためにあります。わざと制限を小さくしてはいけません。ネットワークの状況によって必要な場合は、 (できればメモリを追加してから) デフォルトより増やすのはかまいません。
-net.ipv4.ip_local_port_range = 10000 65000 //ローカルポートとして利用できるアドレスの範囲 デフォルトだと28232 個なので増やす。ポートが足りなくなるとポートのどれかが解放されるまで新しいコネクションを確立できなくなる
-net.core.somaxconn = 32768 // TCPソケットが受け付けた接続要求を格納するキューの最大長
-net.core.netdev_max_backlog = 8192 // カーネルがキューイング可能なパケットの最大個数
-net.ipv4.tcp_tw_reuse = 1 // TIME_OUT 状態のコネクションを再利用 (1使いまわす、0使いまわさない)
-net.ipv4.tcp_fin_timeout = 10 // TCPの終了待ちタイムアウト秒数を設定(default 60)
-```
-Apply
-```
-$ sudo /sbin/sysctl -p
-```
-
----
-
 ## ●commands (使えるコマンド集）
 ### システム情報の表示
 ```
