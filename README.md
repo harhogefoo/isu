@@ -1,5 +1,5 @@
 # [ISU]Iikanjini SpeedUp cheat sheet
-## ★systemctl
+## ●systemctl
 ※CentOS7では実質`chkconfig`が廃止され，サービスに関連することはsystemctlを使う
 ### 実行中のサービス一覧
 ```bash
@@ -48,13 +48,23 @@ $ jornalctl -u [service_name].service
 `-k` エラーを強調する  
 `-f` リアルタイムな表示  
 
-## ★nginx
+## ●nginx
 ### 現在設定されているconfファイルの文法チェック
 ```
 # nginx -t
 ```
 
-## ★commands (使えるコマンド集）
+### kataribe導入
+```
+$ apt-get update
+$ apt-get install golang
+$ mkdir -p ~/gocode && echo 'export GOPATH=$HOME/gocode' >> ~/.bashrc
+$ echo 'export PATH=$GOPATH/bin:$PATH' >> ~/.bashrc
+$ source ~/.bashrc
+$ go get github.com/matsuu/kataribe
+```
+
+## ●commands (使えるコマンド集）
 ### システム情報の表示
 ```
 $ uname -a
