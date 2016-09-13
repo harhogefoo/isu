@@ -64,6 +64,11 @@ $ source ~/.bashrc
 $ go get github.com/matsuu/kataribe
 ```
 
+### kataribe実行
+```
+# cat /var/log/nginx/access.log | kataribe -f $GOPATH/src/github.com/matsuu/kataribe/kataribe.toml
+```
+
 ## ●commands (使えるコマンド集）
 ### システム情報の表示
 ```
