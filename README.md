@@ -50,7 +50,24 @@ $ jornalctl -u [service_name].service
 
 ## nginx
 ### 現在設定されているconfファイルの文法チェック
-```bash
+```
 # nginx -t
+```
+
+## commands (使えるコマンド集）
+### システム情報の表示
+```
+$ uname -a
+```
+`-a` コンピュータ（ハードウェア)の種類，ネットワークにおけるホスト名，OSのリリース番号，OSの名称
+
+### CPU情報の確認
+```
+$ cat /proc/cpuinfo
+```
+
+### メモリ情報の確認
+```
+$ cat /proc/meminfo
 ```
 
