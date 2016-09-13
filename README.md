@@ -48,6 +48,8 @@ $ jornalctl -u [service_name].service
 `-k` エラーを強調する  
 `-f` リアルタイムな表示  
 
+---
+
 ## ●nginx
 ### 現在設定されているconfファイルの文法チェック
 ```
@@ -68,6 +70,8 @@ $ go get github.com/matsuu/kataribe
 ```
 # cat /var/log/nginx/access.log | kataribe -f $GOPATH/src/github.com/matsuu/kataribe/kataribe.toml
 ```
+
+---
 
 ## ●commands (使えるコマンド集）
 ### システム情報の表示
