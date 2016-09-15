@@ -98,6 +98,16 @@ mysql> select @@[param_name];
 ALTER TABLE [table_name] ADD INDEX [index_name]([column_name])
 ```
 
+### Show Index
+```
+SHOW INDEX FROM [table_name];
+```
+
+### Show warning
+```
+SHOW WARNING\G
+```
+
 ---
 
 ### Dump Slow Query
